@@ -1,0 +1,14 @@
+#burgerPic{
+	width:200px;
+	height:200px;
+	margin: auto;
+	padding: auto;
+}
+
+* {
+	font-family: 'Lobster', cursive;
+}
+
+h1{
+	text-align: center;
+}

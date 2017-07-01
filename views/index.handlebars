@@ -1,0 +1,60 @@
+<div class="tableBox col-xl-8 col-lg-8 col-md-8 -colsm-12 col-xs-12">
+  <table class="table">
+    <thead>
+      <th> Burger ID</th>
+      <th> Burger Name</th>
+      <th> Yum</th>
+    </thead>
+    <tbody>
+      {{#each burgers}}
+        {{#unless this.devoured}}
+        <tr>
+          <td>{{this.id}}</td>
+          <td> {{this.burger_name}}</td>
+           <td>
+              <form action="/update/{{this.id}}?_method=PUT" method="POST">
+                <input type="hidden" name="devoured" value="true">
+                <button class="btn btn-success" type="submit">Devour it!</button>
+              </form>
+          </td>
+          </tr>
+        {{/unless}}
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+
+<div class="tableBox  col-xl-4 col-lg-4 col-md-4 -colsm-12 col-xs-12">
+  <table class="table">
+      <thead>
+      <th> Devoured Burgers</th>
+    </thead>
+        <tbody>
+          {{#each burgers}}
+            {{#if this.devoured}}
+            <tr>
+              <td> {{this.burger_name}}</td>
+            </tr>
+            {{/if}}
+          {{/each}}
+        </tbody>
+  </table>
+</div>
+
+<br>
+<br>
+<hr>
+<br>
+
+<div class="jumbotron col-xl-12 col-lg-12 col-md-12 -colsm-12 col-xs-12" id="addBox">
+    <h2>Add a Burger</h2>
+
+    <form action="/create" method="POST">
+P
+        <label for="burgerBox">Burger Name:</label>
+        <input type="text" id="burgerBox" name="burger_name" >
+
+      <button class="btn btn-danger" type="submit">Add</button>
+
+    </form>
+</div>
